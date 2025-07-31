@@ -7,3 +7,6 @@ bcrypt==4.0.1
 pydantic-settings
 asyncio
 pydantic[email]
+redis
+openai
+requests

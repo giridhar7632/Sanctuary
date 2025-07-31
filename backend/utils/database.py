@@ -1,9 +1,15 @@
 from supabase import create_client, Client
 from utils.config import settings
 from typing import List, Optional, Dict, Any
+from openai import AsyncOpenAI
+import google.generativeai as genai
 import asyncio
+import redis
 
 supabase: Client = create_client(settings.SUPABASE_URL, settings.SUPABASE_KEY)
+redis_client = redis.Redis.from_url(settings.REDIS_URL, decode_responses=True)
+openai_client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
+genai.configure(api_key=settings.GEMINI_API_KEY)
 
 async def _select(table: str, columns: str = "*", filters: Optional[List] = None, order: Optional[str] = None, desc: bool = False, limit: int = None):
     def query():

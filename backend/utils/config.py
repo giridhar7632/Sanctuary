@@ -5,6 +5,15 @@ class Settings(BaseSettings):
     # Database
     SUPABASE_URL: str
     SUPABASE_KEY: str
+    REDIS_URL: str
+
+    # API
+    QLOO_API_KEY: str
+    QLOO_API_URL: str
+    OPENAI_API_KEY: str
+    OPENAI_MODEL: str = "gpt-4o-mini"
+    GEMINI_API_KEY: str
+    GEMINI_MODEL: str = "gemini-1.5-flash"
     
     # JWT
     SECRET_KEY: str
